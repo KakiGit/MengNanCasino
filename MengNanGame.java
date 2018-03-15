@@ -33,7 +33,7 @@ public class MengNanGame {
             if(winner=="draw")
             mengNanDrawCount++;
         }   
-        money =(float) (mengNan2WinCount) * 150 /gamePlayNumber - (float) (mengNan1WinCount) * 100 /gamePlayNumber;
+        money =(float) (mengNan2WinCount) * 150 /gamePlayNumber - (float) (mengNan1WinCount+mengNanDrawCount) * 100 /gamePlayNumber;
         System.out.println("MengNan2 won $"+money+" on average every time");
         System.out.println("MengNan1 won "+mengNan1WinCount+" times!");
         System.out.println("MengNan2 won "+mengNan2WinCount+" times!");
