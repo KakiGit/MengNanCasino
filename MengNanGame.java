@@ -7,7 +7,8 @@ import javax.lang.model.util.ElementScanner6;
 
 public class MengNanGame {
     public static void main(String[] args) {
-        int gamePlayNumber = 100000, mengNan1WinCount=0, mengNan2WinCount=0;
+        int gamePlayNumber = 100000, mengNan1WinCount=0, mengNan2WinCount=0,mengNanDrawCount=0;
+        float money;
         MengNan mengNan1;
         MengNan mengNan2;
         for(int i=0; i<gamePlayNumber; i++)
@@ -29,9 +30,14 @@ public class MengNanGame {
             mengNan1WinCount++;
             if(winner=="mengNan2")
             mengNan2WinCount++;  
+            if(winner=="draw")
+            mengNanDrawCount++;
         }   
-        System.out.println("MengNan1 win "+mengNan1WinCount+" times!");
-        System.out.println("MengNan2 win "+mengNan2WinCount+" times!");
+        money =(float) (mengNan2WinCount) * 150 /gamePlayNumber - (float) (mengNan1WinCount) * 100 /gamePlayNumber;
+        System.out.println("MengNan2 won $"+money+" on average every time");
+        System.out.println("MengNan1 won "+mengNan1WinCount+" times!");
+        System.out.println("MengNan2 won "+mengNan2WinCount+" times!");
+        System.out.println("Game drew "+mengNanDrawCount+" times!");
     
 }
 
@@ -56,6 +62,8 @@ public class MengNanGame {
                    winner = "mengNan1";
                    else
                    winner = "mengNan2";
+                   if(mengNan1.healthPoint==mengNan2.healthPoint)
+                   winner = "draw";
                }
         return winner;
     }
@@ -89,7 +97,15 @@ class MengNan {
 
         for(int i = 0; i < rollDiceNum; i++)
         {
-           arrayList.add(diceCate[ (int) (4 * Math.random())]);
+            int ran = (int) (6 * Math.random());
+            if(ran>=4)
+            arrayList.add(diceCate[2]);         
+            else if(ran>=2)
+            arrayList.add(diceCate[3]);
+            else if(ran>=1)
+            arrayList.add(diceCate[0]);
+            else
+            arrayList.add(diceCate[1]);          
         }
         while(arrayList.indexOf("null")!=-1)
         {
