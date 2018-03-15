@@ -9,6 +9,7 @@ public class MengNanGame {
     public static void main(String[] args) {
         int gamePlayNumber = 100000, mengNan1WinCount=0, mengNan2WinCount=0,mengNanDrawCount=0;
         float money;
+        int moneyTmp=0,maximumDeficit=0, maximumProfit=0;
         MengNan mengNan1;
         MengNan mengNan2;
         for(int i=0; i<gamePlayNumber; i++)
@@ -32,9 +33,21 @@ public class MengNanGame {
             mengNan2WinCount++;  
             if(winner=="draw")
             mengNanDrawCount++;
+            
+            if(winner == "mengNan2")
+            moneyTmp = moneyTmp + 150;
+            else
+            moneyTmp = moneyTmp - 100;
+            
+            if(moneyTmp<maximumDeficit)
+            maximumDeficit=moneyTmp;
+            if(moneyTmp>maximumProfit)
+            maximumProfit=moneyTmp;
         }   
         money =(float) (mengNan2WinCount) * 150 /gamePlayNumber - (float) (mengNan1WinCount+mengNanDrawCount) * 100 /gamePlayNumber;
         System.out.println("MengNan2 won $"+money+" on average every time");
+        System.out.println("MengNan2 lost maximum $"+maximumDeficit+" in the game");
+        System.out.println("MengNan2 got maximum $"+maximumProfit+" in the game");
         System.out.println("MengNan1 won "+mengNan1WinCount+" times!");
         System.out.println("MengNan2 won "+mengNan2WinCount+" times!");
         System.out.println("Game drew "+mengNanDrawCount+" times!");
