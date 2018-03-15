@@ -14,5 +14,7 @@ https://www.bilibili.com/video/av20764360/
 
 ## Bug fixes
 感谢以下B站用户的提醒
+
 @诸葛孔明Alter: 输了-100,赢了+150,应该算亏不亏
+
 @DreamNya: 骰子有6个面,2个攻击2个再来一次,且有平局
