@@ -10,7 +10,7 @@
 
 * 平局9%
 
-老菊视频里银行总是先手,所以继续赌下去会亏.
+老菊视频里银行总是先手.
 
 ![Image text](https://github.com/KakiGit/MengNanCasino/raw/master/result.png)
 ```bash
